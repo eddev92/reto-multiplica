@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+.mat-tab-body.mat-tab-body-active {
+    border: 1px solid #b8b8b8;
+    padding: 60px;
+}
+.mat-tab-label {
+    min-width: 25% !important;
+
+}
+.mat-tab-label .mat-tab-label-content {
+    position: fixed;
+}
+.mat-tab-label-container {
+    background-color: #43e44532;
+}
