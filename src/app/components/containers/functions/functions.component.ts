@@ -6,11 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./functions.component.css']
 })
 export class FunctionsComponent {
-    input1 = 1;
-    input2 = 3;
-    result = this.input1 + this.input2;
+    items: number [] = new Array();
     ngOnInit() {
-        this.validateParameters(1, 2);
+        this.generateElements();
     }
     validateParameters(x: any, y: any) {
         if (x && y) {
@@ -18,5 +16,33 @@ export class FunctionsComponent {
         } else {
             alert('Ambos valores son requeridos!')
         }
+    }
+
+    getAcumCubes() {
+        const init: number = 1;
+        const finish: number = 1000;
+        let acum: number;
+        let result: number;
+        let values: number[] = new Array();
+
+        for(let i = init; i <= finish; i++){
+            if (i % 2 > 0) {
+                values.push(i);
+            }
+          }
+        result = values.reduce((num1: any, num2: any) => num1 + num2 );
+          console.log(values)
+          console.log(result)
+    }
+    generateElements() {
+        for(let i = 1; i <= 6666; i++) {
+            this.items.push(i);
+        }
+        console.log(this.items)
+    }
+    changeHour() {
+       
+
+
     }
 }

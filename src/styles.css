@@ -13,3 +13,8 @@
 .mat-tab-label-container {
     background-color: #43e44532;
 }
+.mat-expansion-panel-body {
+    max-height: 220px;
+    overflow-y: auto;
+    width: 140px;
+}
