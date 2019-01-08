@@ -5,7 +5,9 @@
 }
 .mat-tab-label {
     min-width: 25% !important;
-
+}
+.main-app {
+    padding: 30px;
 }
 .mat-tab-label .mat-tab-label-content {
     position: fixed;
@@ -13,7 +15,7 @@
 .mat-tab-label-container {
     background-color: #43e44532;
 }
-.mat-expansion-panel-body {
+#body-item6666 .mat-expansion-panel-body {
     max-height: 220px;
     overflow-y: auto;
     width: 140px;
