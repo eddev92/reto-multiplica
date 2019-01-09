@@ -9,12 +9,14 @@ import { NavComponent } from './components/shared/nav/nav.component';
 import { FunctionsComponent } from './components/containers/functions/functions.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
+import { StartCraftComponent } from './components/containers/start-craft/start-craft.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    FunctionsComponent
+    FunctionsComponent,
+    StartCraftComponent
   ],
   imports: [
     BrowserModule,

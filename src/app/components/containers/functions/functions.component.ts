@@ -41,9 +41,6 @@ export class FunctionsComponent {
         for(let i = 1; i <= 6666; i++) {
             this.items.push(i);
         }
-        // this.onlyHour = `${this.currencyHour.getHours()}:${this.currencyHour.getMinutes()}:${this.currencyHour.getSeconds()}`;
-        console.log(this.items)
-        console.log(`${this.currencyHour.getHours()}:${this.currencyHour.getMinutes()}:${this.currencyHour.getSeconds()}`)
     }
     changeHour() {
         const min=0; 
