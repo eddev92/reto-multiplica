@@ -31,8 +31,11 @@
     padding: 3px;
     margin-bottom: 0;
 }
-.mat-accordion .mat-expansion-panel:first-of-type {
+.mat-accordion .mat-expansion-panel:first-of-type, .mat-accordion .mat-expansion-panel:last-of-type {
     background-color: #fe64;
+}
+.mat-accordion .mat-expansion-panel:last-of-type {
+    padding-top: 10px;
 }
 #mat-expansion-panel-header-1 .mat-expansion-panel-header-description,#mat-expansion-panel-header-1 .mat-expansion-panel-header-title, #mat-expansion-panel-header-0 .mat-expansion-panel-header-title {
     padding: 15px 0;
@@ -63,4 +66,10 @@ ul li:hover {
     position: absolute;
     top: 75%;
     right: 23%;
+}
+#main-objects {
+    font-size: 15px;
+}
+#main-objects .mat-expansion-panel-header-description, .mat-expansion-panel-header-title {
+    padding: 15px 0;
 }
