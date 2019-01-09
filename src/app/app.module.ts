@@ -12,6 +12,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
 import { StartCraftComponent } from './components/containers/start-craft/start-craft.component';
 import { ObjectsComponent } from './components/containers/objects/objects.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ObjectsComponent } from './components/containers/objects/objects.compon
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MatTabsModule,

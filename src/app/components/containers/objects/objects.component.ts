@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TransformData } from '../../../utils/transform';
+import {NgForm} from '@angular/forms';
+import { DRINKS } from '../../../constants/drinks';
 
 @Component({
   selector: 'objects',
@@ -8,6 +10,7 @@ import { TransformData } from '../../../utils/transform';
   styleUrls: ['./objects.component.css']
 })
 export class ObjectsComponent {
+  public code: string;
   data: any = {};
   // talk = this.talky;
   cat: any = {
@@ -20,13 +23,8 @@ export class ObjectsComponent {
     speak: this.cat.speak,
     sound: 'wof'
   }
-  constructor(private http: HttpClient) {
-    // this.dog = this.dog;
-  }
 
-  ngOnInit() {
-    // this.getData();
-  }
+  constructor(private http: HttpClient) {}
 
   getData() {
     return this.http.get('./api/trama.json')
@@ -43,13 +41,8 @@ export class ObjectsComponent {
   
       if (arrayElements.length) {
         arrayElements.forEach(path => {
-          console.log(path)
           const aux = { ...this.data[path], path: path }
-
-          console.log(aux)
           auxTramaConFormato.push(aux)
-          console.log(arrayElements)
-          console.log(auxTramaConFormato)
         })
         // map auxTramaConFormato
         if (auxTramaConFormato.length) {
@@ -92,7 +85,6 @@ export class ObjectsComponent {
       }
     ];
     personsFiltered = persons.filter(person => person.donacion && person.esposas.length >= 1)
-    console.log(personsFiltered)
     if (personsFiltered && personsFiltered.length) {
       personsFiltered.forEach(esposa => {
         esposa.esposas.forEach(element => {
@@ -102,6 +94,46 @@ export class ObjectsComponent {
         });
       })
       console.log(personsWithWifes)
+    }
+  }
+  callFnctiongetPerns() {
+    const persons = [
+      {
+        name: 'Pepe',
+        edad: 11
+      },
+      {
+        name: 'Juan',
+        edad: 22
+      },
+      {
+        name: 'Lalo',
+        edad: 33
+      }
+    ];
+    this.getPersonByAge(persons);
+  }
+  getPersonByAge(persons: any) {
+            console.log(persons)
+  }
+  getDrink() {
+   let exist: boolean;
+   let drinkSelected: any;
+    if (this.code && this.code.length) {
+        DRINKS.filter((dr: any) => {
+          if (dr.code === this.code) {
+            drinkSelected = dr;
+            exist = true;
+          }
+        });
+        if (exist === true) {
+          alert(`Estoy tomando ${drinkSelected.name}`)
+        } else {
+          alert('Estoy tomando agua de jamaica')
+          this.code = '';
+        }
+    } else {
+      alert('Código de bebida es requerido')
     }
   }
 }

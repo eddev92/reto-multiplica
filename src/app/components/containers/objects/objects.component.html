@@ -43,4 +43,31 @@
                 <button (click)="validatePersons()">Validar personas</button>
             </mat-expansion-panel>
         </mat-accordion>
+        <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+                Función #8
+            </mat-panel-title>
+            <mat-panel-description>
+                <p>Dado el sgte array de personas, crear una función que reciba dicho array y las edades (1 o N parámetros) por las cuales se desea excluir a las personas, retornando solo el nombre de dichas personas.</p>
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+            <button (click)="callFnctiongetPerns()">Obtener persona por edad</button>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                Función #9
+                </mat-panel-title>
+                <mat-panel-description>
+                <p>Crear una función la cual reciba como parámetro el código de una bebida, y según las siguientes condicionales nos imprima en consola el siguiente mensaje:‘Estoy tomando NOMBRE_DE_BEBIDA’</p>
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                    <input name="code" [(ngModel)]="code">
+                    <button (click)="getDrink()">Obtener persona por edad</button>
+        </mat-expansion-panel>
+    </mat-accordion>
 </div>
