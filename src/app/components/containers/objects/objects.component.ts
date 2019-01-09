@@ -71,4 +71,37 @@ export class ObjectsComponent {
   showPropertyDog() {
     return this.cat.speak;
   }
+  validatePersons() {
+    let personsFiltered: any = new Array();
+    let personsWithWifes: any = new Array();
+    const persons: any = [
+      {
+        name: 'Pepe',
+        donacion: true,
+        esposas: ['Rosangela', 'Mayte']
+      },
+      {
+        name: 'Juan',
+        donacion: false,
+        esposas: ['Yahaira']
+      },
+      {
+        name: 'Lalo',
+        donacion: true,
+        esposas: []
+      }
+    ];
+    personsFiltered = persons.filter(person => person.donacion && person.esposas.length >= 1)
+    console.log(personsFiltered)
+    if (personsFiltered && personsFiltered.length) {
+      personsFiltered.forEach(esposa => {
+        esposa.esposas.forEach(element => {
+          if (element.startsWith('Y') || element.startsWith('N')) {
+            personsWithWifes.push(esposa);
+          }
+        });
+      })
+      console.log(personsWithWifes)
+    }
+  }
 }
