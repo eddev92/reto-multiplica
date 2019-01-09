@@ -1,2 +1,46 @@
-<button (click)="transformData()">Modelar trama</button>
-<button (click)="getData()">Generar trama original</button>
+
+<div>
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+                Función #5
+            </mat-panel-title>
+            <mat-panel-description>
+                <p>Dado el obj del archivo trama-examen-1.json, crear la lógica para generar la siguiente estructura (array de objetos)</p>
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+            <button (click)="transformData()">Modelar trama</button>
+            <button (click)="getData()">Generar trama original</button>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+                Función #6
+            </mat-panel-title>
+            <mat-panel-description>
+                <p>Dado el siguiente código, realizar la invocación del método 'speak' del objeto cat, para imprimir en consola el valor de la propiedad 'sound' del objeto 'dog'.</p>
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+            <button (click)="talky()">Mostrar en consola propiedad sound</button>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Función #7
+                </mat-panel-title>
+                <mat-panel-description>
+                    <p>Dado el sgte array, retornar solo los NOMBRES de las personas que donan órganos y que tienen 1 o más esposas, cuyo nombre empieze con 'Y' o 'N'.</p>
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+         
+            </mat-expansion-panel>
+        </mat-accordion>
+</div>

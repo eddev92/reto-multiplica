@@ -9,7 +9,20 @@ import { TransformData } from '../../../utils/transform';
 })
 export class ObjectsComponent {
   data: any = {};
-  constructor(private http: HttpClient) {}
+  // talk = this.talky;
+  cat: any = {
+    speak: function() {
+      return this.talky();
+    },
+    sound: 'miau'
+  }
+  dog: any = {
+    speak: this.cat.speak,
+    sound: 'wof'
+  }
+  constructor(private http: HttpClient) {
+    // this.dog = this.dog;
+  }
 
   ngOnInit() {
     // this.getData();
@@ -26,35 +39,6 @@ export class ObjectsComponent {
     transformData() {
       let auxTramaConFormato: any = new Array();
       let tramaConFormato: any = new Array();
-      let obj: any = {
-        consumes: '',
-        hasBodyOrQueryReq: false,
-        hasBodyReq: false,
-        hasParameters: false,
-        hasPathReq: false,
-        hasQueryreq: false,
-        httpMethod: '',
-        parameters: {
-          body: {
-            isRequired: false
-          },
-          path: {},
-          query: {
-            modelName: '',
-            params: [
-              {
-                name: '',
-                isRequired: false,
-                comma: false,
-                isBoolean: false,
-                isNumber: false,
-                isString: false
-              }
-            ]
-          }
-        },
-        path: ''
-      };
       const arrayElements = Object.keys(this.data);
   
       if (arrayElements.length) {
@@ -74,9 +58,17 @@ export class ObjectsComponent {
             return newObj;
         })
         console.log(tramaConFormato)
-      } else {
-        alert("Genere la trama ejemplo por favor.")
       }
+    } else {
+      alert("Genere la trama ejemplo por favor.")
     }
+  }
+  
+  talky() {
+    console.log(this.dog.sound);
+  };
+
+  showPropertyDog() {
+    return this.cat.speak;
   }
 }
