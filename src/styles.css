@@ -6,6 +6,9 @@
 .mat-tab-label {
     min-width: 25% !important;
 }
+.mat-expansion-panel-header {
+    border-bottom: 1px solid #e5e5e5;
+}
 .main-app {
     padding: 30px;
 }
@@ -16,10 +19,48 @@
     background-color: #43e44532;
 }
 #body-item6666 .mat-expansion-panel-body {
-    max-height: 220px;
+    max-height: 260px;
+    min-height: 30px;
     overflow-y: auto;
-    width: 140px;
+    width: 100%;
+    display:inline;
+}
+#body-item6666 .mat-expansion-panel-body ul {
+    width: 150px;
+    display: grid;
+    padding: 3px;
+    margin-bottom: 0;
 }
 .mat-accordion .mat-expansion-panel:first-of-type {
     background-color: #fe64;
+}
+#mat-expansion-panel-header-1 .mat-expansion-panel-header-description,#mat-expansion-panel-header-1 .mat-expansion-panel-header-title, #mat-expansion-panel-header-0 .mat-expansion-panel-header-title {
+    padding: 15px 0;
+}
+.hour {
+    width: 200px;
+    padding: 15px;
+    position: absolute;
+    right: 18%;
+    top: 60%;
+    border: 1px solid #b8b8b8;
+}
+.ul-content {
+    width: 175px;
+    max-height: 240px;
+    margin: 25px 20%;
+    overflow-y: auto;
+}
+ul li {
+    display: -webkit-inline-box;
+    cursor: pointer;
+}
+ul li:hover {
+    background-color: burlywood; 
+}
+.getHour {
+    padding: 5px;
+    position: absolute;
+    top: 75%;
+    right: 23%;
 }

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './components/shared/nav/nav.component';
 import { FunctionsComponent } from './components/containers/functions/functions.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     BrowserAnimationsModule,
     AppRoutingModule,
     MatTabsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

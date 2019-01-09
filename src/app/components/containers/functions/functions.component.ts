@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class FunctionsComponent {
     items: number [] = new Array();
+    currencyHour: any = new Date();
+    onlyHour: any = '';
     ngOnInit() {
         this.generateElements();
     }
@@ -24,25 +26,46 @@ export class FunctionsComponent {
         let acum: number;
         let result: number;
         let values: number[] = new Array();
+        let powThree: number[] = new Array();
 
         for(let i = init; i <= finish; i++){
             if (i % 2 > 0) {
                 values.push(i);
             }
           }
-        result = values.reduce((num1: any, num2: any) => num1 + num2 );
-          console.log(values)
-          console.log(result)
+          powThree = values.map(val => Math.pow(val, 3))
+          result = powThree.reduce((num1: any, num2: any) => num1 + num2);
+          alert(result)
     }
     generateElements() {
         for(let i = 1; i <= 6666; i++) {
             this.items.push(i);
         }
+        // this.onlyHour = `${this.currencyHour.getHours()}:${this.currencyHour.getMinutes()}:${this.currencyHour.getSeconds()}`;
         console.log(this.items)
+        console.log(`${this.currencyHour.getHours()}:${this.currencyHour.getMinutes()}:${this.currencyHour.getSeconds()}`)
     }
     changeHour() {
-       
-
-
+        const min=0; 
+        const max=25;
+        const maxMinutes = 61;
+        const randomHours: any = Math.random() * (+max - +min) + +min;
+        const randomMinutes: any = Math.random() * (+maxMinutes - +min) + +min;
+        const randomSeconds: any = Math.random() * (+maxMinutes - +min) + +min;
+        this.onlyHour = 
+            `${(randomHours.toFixed(0).length === 1) ?
+                `0${randomHours.toFixed(0)}`
+                :
+                randomHours.toFixed(0)}:${(randomMinutes.toFixed(0).length === 1 ?
+                    `0${randomMinutes.toFixed(0)}`
+                    :
+                    randomMinutes.toFixed(0))}:${(randomSeconds.toFixed(0).length === 1 ?
+                        `0${randomSeconds.toFixed(0)}`
+                        :
+                        randomSeconds.toFixed(0))}`;
+    }
+    getHour() {
+        const date: any = new Date();
+        this.onlyHour = `${date.getHours()}:${date.getMinutes()}:${(date.getSeconds().toString()).length === 1 ? `0${date.getSeconds()}`: date.getSeconds()}`
     }
 }
