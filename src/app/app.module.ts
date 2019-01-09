@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,13 +11,15 @@ import { FunctionsComponent } from './components/containers/functions/functions.
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
 import { StartCraftComponent } from './components/containers/start-craft/start-craft.component';
+import { ObjectsComponent } from './components/containers/objects/objects.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     FunctionsComponent,
-    StartCraftComponent
+    StartCraftComponent,
+    ObjectsComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { StartCraftComponent } from './components/containers/start-craft/start-c
     AppRoutingModule,
     MatTabsModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
