@@ -1,6 +1,5 @@
 #RETO MULTIPLICA
 > Author: Edward Llanca Haro
-> Mail: edwarllanca@hotmail.com
 
 ## INSTALL
 > nmp install (install node_modules)
