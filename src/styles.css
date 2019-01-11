@@ -73,3 +73,8 @@ ul li:hover {
 #main-objects .mat-expansion-panel-header-description, .mat-expansion-panel-header-title {
     padding: 15px 0;
 }
+.card {
+    text-align: left;
+    padding: 0;
+    margin: 10px;
+}

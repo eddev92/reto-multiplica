@@ -13,6 +13,8 @@ import {MatCardModule} from '@angular/material/card';
 import { StartCraftComponent } from './components/containers/start-craft/start-craft.component';
 import { ObjectsComponent } from './components/containers/objects/objects.component';
 import { FormsModule } from '@angular/forms';
+import { DashboardComponent } from './components/containers/dashboard/dashboard.component';
+import { CardComponent } from './components/shared/card/card.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FormsModule } from '@angular/forms';
     NavComponent,
     FunctionsComponent,
     StartCraftComponent,
-    ObjectsComponent
+    ObjectsComponent,
+    DashboardComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
