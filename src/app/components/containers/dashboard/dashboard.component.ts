@@ -23,8 +23,12 @@ export class DashboardComponent {
     public empty: boolean;
 
     ngOnInit() {
+        const itemsRender = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
         this.categories = CATEGORIES;
-        localStorage.clear();
+        if (itemsRender.length) {
+            this.items = itemsRender;
+            this.empty = true;
+        }
     }
 
     saveItem() {
@@ -35,10 +39,12 @@ export class DashboardComponent {
         }
         if (this.itemsSaved && this.itemsSaved.length) {
             this.items = JSON.parse(localStorage.getItem('items'));
+            this.empty = true;
         }
         if ((this.items && this.items.length) || (this.name.length && this.desc.length)) {
             this.items.push({name: this.name, desc: this.desc, category: this.optionSelected});
             localStorage.setItem('items', JSON.stringify(this.items));
+            this.empty = true;
             this.copyItemInitial = JSON.parse(localStorage.getItem('items'));
         }
     }
@@ -51,7 +57,9 @@ export class DashboardComponent {
         if (this.items.length) {
             this.items.forEach((item, index) => {
                 if (data.name === item.name && data.desc === item.desc) {
-                    return this.items.splice(index, 1);
+                    localStorage.removeItem('items');
+                    this.items.splice(index, 1);
+                    localStorage.setItem('items', this.items);
                 }
             })
         }
@@ -92,27 +100,34 @@ export class DashboardComponent {
         }
       }
     filterItems(code: any) {
-        if (code) {
+        console.log('entro', this.empty)
+        if (code && this.empty) {
             if (code && this.items) {
                 this.items = JSON.parse(localStorage.getItem('items'));
                 if (code === 1) {
                     this.itemsFiltered = JSON.parse(localStorage.getItem('items'));
                 } else {
-                    this.itemsFiltered = this.items.filter(item => item.category === `${code}`);
+                    if (this.items && this.items.length) {
+                        this.itemsFiltered = this.items.filter(item => item.category === `${code}`);
+                    } else {
+                        return alert('no existen registros para filtrar')
+                    }
                 }
             }
-            if (this.itemsFiltered.length) {
+            if (this.itemsFiltered && this.itemsFiltered.length) {
                 return this.items = this.itemsFiltered;            
             } else {
-                if (this.items.length && code === 1) {
+                if (this.items && this.items.length && code === 1) {
                     this.items = JSON.parse(localStorage.getItem('items'));
                 } else {
                     this.items = [];
                 }
             }
             return this.items;
-        } else {
-            alert('No existen registros para filtrar')
         }
+    }
+    clearList() {
+        localStorage.clear();
+        this.items = [];
     }
 };
