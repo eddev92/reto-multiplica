@@ -15,9 +15,9 @@ export class FunctionsComponent {
     ngOnInit() {
         this.generateElements();
     }
-    validateParameters(x: any, y: any) {
-        if (x && y) {
-            console.log('exito')
+    validateParameters() {
+        if (this.parameterA && this.parameterB) {
+            alert(`Los valores ingresados son: ${this.parameterA} y ${this.parameterB}`)
         } else {
             alert('Ambos valores son requeridos!')
         }

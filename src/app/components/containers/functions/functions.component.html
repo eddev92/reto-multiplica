@@ -10,8 +10,8 @@
                 <p>Crear una función que reciba 2 parámetros, los cuales serán requeridos (no deben ser undefined).</p>
             </mat-panel-description>
             </mat-expansion-panel-header>
-                <input type="text" value="">
-                <input type="text" value="">
+                <input [(ngModel)]="parameterA">
+                <input [(ngModel)]="parameterB">
                 <button (click)="validateParameters()">Validar</button>
         </mat-expansion-panel>
         <mat-expansion-panel 

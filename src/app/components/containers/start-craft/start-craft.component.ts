@@ -9,18 +9,23 @@ import { USERS } from '../../../constants/users';
 })
 export class StartCraftComponent {
     createTerrans() {
+        alert('revisar la consola por favor');
         USERS.forEach(user => console.log(new Terran(user.name, user.age, user.country)))
     }
     createZerg() {
+        alert('revisar la consola por favor');
         USERS.forEach(user => console.log(new Zerg(user.name, user.age, user.country)))
     }
     createProtoss() {
+        alert('revisar la consola por favor');
         USERS.forEach(user => console.log(new Protoss(user.name, user.age, user.country)))
     }
     createCustom1() {
+        alert('revisar la consola por favor');
         USERS.forEach(user => console.log(new Custom1(user.name, user.age, user.country)))
     }
     createCustom2() {
+        alert('revisar la consola por favor');
         USERS.forEach(user => console.log(new Custom2(user.name, user.age, user.country)))
     }
 }
