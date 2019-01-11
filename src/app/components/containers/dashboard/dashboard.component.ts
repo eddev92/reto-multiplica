@@ -127,5 +127,6 @@ export class DashboardComponent {
     clearList() {
         localStorage.clear();
         this.items = [];
+        this.empty = false;
     }
 };
