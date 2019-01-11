@@ -21,7 +21,12 @@
     text-align: left;
 }
 .buttons button.save {
+    border: 1px solid limegreen;
     color: limegreen;
+}
+.buttons button.remove {
+    border: 1px solid red;
+    color: red;
 }
 .list-items-dashboard {
     width: 70%;
