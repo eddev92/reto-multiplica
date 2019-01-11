@@ -34,3 +34,18 @@
     position: absolute;
     right: 5%;
 }
+.main-dashboard .nav {
+    border: 1px solid #e5e5e5;
+    margin: 10px 0;
+}
+.option {
+    border-right: 1px solid #e5e5e5;
+    cursor: pointer;
+    color: #bbb
+}
+.option.active {
+    color: black;
+}
+.form-dashboard select {
+    width: 100%;
+}

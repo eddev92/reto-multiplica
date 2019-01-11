@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SERVICES_ITEMS, CATEGORIES } from '../../../constants/services';
 
 @Component({
   selector: 'dashboard',
@@ -13,13 +14,23 @@ export class DashboardComponent {
     public items: any = new Array();
     public showEdit: boolean;
     private itemSelected: any;
-    remove: boolean = false;
+    public categories: any = new Array();
+    public remove: boolean = false;
+    public optionSelected: string;
+    public copyItemInitial: any = new Array();
+
+    ngOnInit() {
+        this.categories = CATEGORIES;
+    }
+
     saveItem() {
         if (this.name.length && this.desc.length) {
-            return this.items.push({name: this.name, desc: this.desc});
+            this.items.push({name: this.name, desc: this.desc, category: this.optionSelected});
+            this.copyItemInitial = [ ...this.items ];
         } else {
             alert('Ambos campos son requeridos.')
         }
+        console.log(this.items)
     }
 
     removeInfo() {
@@ -65,5 +76,29 @@ export class DashboardComponent {
       if (this.items.length && this.showEdit) {
             return this.showEdit = false;
         }
+    }
+    handleChange(option){
+        console.log(option.value)
+        if (option && option.value) {
+            console.log(option.value)
+            this.optionSelected = option.value;
+        }
+        console.log(this.optionSelected);
+      }
+    filterItems(code: any) {
+        this.items = this.copyItemInitial;
+        let itemsFiltered: any = new Array();
+
+        if (code && this.optionSelected && this.items) {
+            console.log(this.items)        
+            console.log('code', code)
+            itemsFiltered = this.items.filter(item => item.category === `${code}`);
+        }
+        if (itemsFiltered.length) {
+            console.log(itemsFiltered)
+            return this.items = itemsFiltered;            
+        }
+        console.log('items filtered', this.items)
+        return this.items;
     }
 };
