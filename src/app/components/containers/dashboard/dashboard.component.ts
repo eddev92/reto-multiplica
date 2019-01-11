@@ -24,7 +24,10 @@ export class DashboardComponent {
     }
 
     saveItem() {
-        if (this.name.length && this.desc.length) {
+        // if (this.items && this.items.length) {
+        //     this.items.push({name: this.name, desc: this.desc, category: this.optionSelected});
+        // }
+        if ((this.items && this.items.length) || (this.name.length && this.desc.length)) {
             this.items.push({name: this.name, desc: this.desc, category: this.optionSelected});
             this.copyItemInitial = [ ...this.items ];
         } else {
