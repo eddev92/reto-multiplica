@@ -33,7 +33,6 @@ export class DashboardComponent {
 
     saveItem() {
         this.itemsSaved = JSON.parse(localStorage.getItem('items'));
-        console.log(this.desc)
         if (!this.name.length || !this.desc.length){
             return alert('Ambos campos son requeridos.')
         }
@@ -100,7 +99,6 @@ export class DashboardComponent {
         }
       }
     filterItems(code: any) {
-        console.log('entro', this.empty)
         if (code && this.empty) {
             if (code && this.items) {
                 this.items = JSON.parse(localStorage.getItem('items'));
