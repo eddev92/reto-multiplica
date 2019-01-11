@@ -50,7 +50,8 @@ export class ObjectsComponent {
             const newObj = TransformData.TransformObj(element);
             return newObj;
         })
-        console.log(tramaConFormato)
+        alert('Revise la consola por favor')
+        console.log('tramaConFormato: ', tramaConFormato)
       }
     } else {
       alert("Genere la trama ejemplo por favor.")
@@ -59,6 +60,7 @@ export class ObjectsComponent {
   
   talky() {
     console.log(this.dog.sound);
+    alert(this.dog.sound)
   };
 
   showPropertyDog() {
@@ -93,7 +95,8 @@ export class ObjectsComponent {
           }
         });
       })
-      console.log(personsWithWifes)
+      alert('Revise la consola por favor')
+      console.log('Resultado Function#7: ', personsWithWifes)
     }
   }
   callFnctiongetPerns() {

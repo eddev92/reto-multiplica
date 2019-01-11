@@ -39,7 +39,7 @@ export class DashboardComponent {
     saveNewItem() {
         if (this.itemSelected && this.itemSelected.name && this.itemSelected.desc) {
             this.items.forEach((item, index) => {
-                if (this.itemSelected.name === item.name && this.itemSelected.desc === item.desc) {
+                if (this.itemSelected.name === item.name && this.itemSelected.desc === item.desc && this.itemSelected.position === index) {
                     item.name = this.newName;
                     item.desc = this.newDesc;
                     this.items[index] = item;
@@ -51,14 +51,10 @@ export class DashboardComponent {
         }
     }
     editItem(data) {
-        const aux = {
-            name: '',
-            desc: ''
-        };
         if (this.items.length && data && data.name && data.desc) {
             this.items.forEach((item, index) => {
                 if (data.name === item.name && data.desc === item.desc) {
-                    this.itemSelected = {name: data.name, desc: data.desc};
+                    this.itemSelected = {name: data.name, desc: data.desc, position: index};
                     return this.showEdit = true
                 }
             })

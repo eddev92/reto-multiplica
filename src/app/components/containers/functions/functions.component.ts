@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'functions',
@@ -9,6 +9,9 @@ export class FunctionsComponent {
     items: number [] = new Array();
     currencyHour: any = new Date();
     onlyHour: any = '';
+    @Input() parameterA: any;
+    @Input() parameterB: any;
+
     ngOnInit() {
         this.generateElements();
     }
