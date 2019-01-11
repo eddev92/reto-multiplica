@@ -30,3 +30,7 @@
 .list-items-dashboard h3 {
     margin: auto;
 }
+.form-dashboard {
+    position: absolute;
+    right: 5%;
+}
