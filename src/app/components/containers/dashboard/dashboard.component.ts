@@ -18,22 +18,28 @@ export class DashboardComponent {
     public remove: boolean = false;
     public optionSelected: string;
     public copyItemInitial: any = new Array();
+    public itemsFiltered: any = new Array();
+    public itemsSaved: any = new Array();
 
     ngOnInit() {
         this.categories = CATEGORIES;
     }
 
     saveItem() {
-        // if (this.items && this.items.length) {
-        //     this.items.push({name: this.name, desc: this.desc, category: this.optionSelected});
-        // }
+        this.itemsSaved = JSON.parse(localStorage.getItem('items'));
+        if (!this.name.length && this.desc.length){
+            return alert('Ambos campos son requeridos.')
+        }
+        if (this.itemsSaved && this.itemsSaved.length) {
+            this.items = JSON.parse(localStorage.getItem('items'));
+        }
         if ((this.items && this.items.length) || (this.name.length && this.desc.length)) {
             this.items.push({name: this.name, desc: this.desc, category: this.optionSelected});
-            this.copyItemInitial = [ ...this.items ];
-        } else {
-            alert('Ambos campos son requeridos.')
+            localStorage.setItem('items', JSON.stringify(this.items));
+            this.copyItemInitial = JSON.parse(localStorage.getItem('items'));
         }
         console.log(this.items)
+        console.log('this.copyItemInitial LOCAL STORAGE', this.copyItemInitial)
     }
 
     removeInfo() {
@@ -89,17 +95,15 @@ export class DashboardComponent {
         console.log(this.optionSelected);
       }
     filterItems(code: any) {
-        this.items = this.copyItemInitial;
-        let itemsFiltered: any = new Array();
 
-        if (code && this.optionSelected && this.items) {
-            console.log(this.items)        
-            console.log('code', code)
-            itemsFiltered = this.items.filter(item => item.category === `${code}`);
+        if (code && this.items) {
+            this.items = JSON.parse(localStorage.getItem('items'));
+            console.log(JSON.parse(localStorage.getItem('items')));
+            this.itemsFiltered = this.items.filter(item => item.category === `${code}`);
         }
-        if (itemsFiltered.length) {
-            console.log(itemsFiltered)
-            return this.items = itemsFiltered;            
+        if (this.itemsFiltered.length) {
+            console.log(this.itemsFiltered)
+            return this.items = this.itemsFiltered;            
         }
         console.log('items filtered', this.items)
         return this.items;
