@@ -20,14 +20,17 @@ export class DashboardComponent {
     public copyItemInitial: any = new Array();
     public itemsFiltered: any = new Array();
     public itemsSaved: any = new Array();
+    public empty: boolean;
 
     ngOnInit() {
         this.categories = CATEGORIES;
+        localStorage.clear();
     }
 
     saveItem() {
         this.itemsSaved = JSON.parse(localStorage.getItem('items'));
-        if (!this.name.length && this.desc.length){
+        console.log(this.desc)
+        if (!this.name.length || !this.desc.length){
             return alert('Ambos campos son requeridos.')
         }
         if (this.itemsSaved && this.itemsSaved.length) {
@@ -38,8 +41,6 @@ export class DashboardComponent {
             localStorage.setItem('items', JSON.stringify(this.items));
             this.copyItemInitial = JSON.parse(localStorage.getItem('items'));
         }
-        console.log(this.items)
-        console.log('this.copyItemInitial LOCAL STORAGE', this.copyItemInitial)
     }
 
     removeInfo() {
@@ -54,7 +55,6 @@ export class DashboardComponent {
                 }
             })
         }
-        console.log(this.items)
     }
     saveNewItem() {
         if (this.itemSelected && this.itemSelected.name && this.itemSelected.desc) {
@@ -87,25 +87,32 @@ export class DashboardComponent {
         }
     }
     handleChange(option){
-        console.log(option.value)
         if (option && option.value) {
-            console.log(option.value)
             this.optionSelected = option.value;
         }
-        console.log(this.optionSelected);
       }
     filterItems(code: any) {
-
-        if (code && this.items) {
-            this.items = JSON.parse(localStorage.getItem('items'));
-            console.log(JSON.parse(localStorage.getItem('items')));
-            this.itemsFiltered = this.items.filter(item => item.category === `${code}`);
+        if (code) {
+            if (code && this.items) {
+                this.items = JSON.parse(localStorage.getItem('items'));
+                if (code === 1) {
+                    this.itemsFiltered = JSON.parse(localStorage.getItem('items'));
+                } else {
+                    this.itemsFiltered = this.items.filter(item => item.category === `${code}`);
+                }
+            }
+            if (this.itemsFiltered.length) {
+                return this.items = this.itemsFiltered;            
+            } else {
+                if (this.items.length && code === 1) {
+                    this.items = JSON.parse(localStorage.getItem('items'));
+                } else {
+                    this.items = [];
+                }
+            }
+            return this.items;
+        } else {
+            alert('No existen registros para filtrar')
         }
-        if (this.itemsFiltered.length) {
-            console.log(this.itemsFiltered)
-            return this.items = this.itemsFiltered;            
-        }
-        console.log('items filtered', this.items)
-        return this.items;
     }
 };

@@ -38,7 +38,7 @@
     padding-top: 10px;
 }
 #mat-expansion-panel-header-1 .mat-expansion-panel-header-description,#mat-expansion-panel-header-1 .mat-expansion-panel-header-title, #mat-expansion-panel-header-0 .mat-expansion-panel-header-title {
-    padding: 15px 0;
+    /* padding: 15px 0; */
 }
 .hour {
     width: 200px;
@@ -71,7 +71,7 @@ ul li:hover {
     font-size: 15px;
 }
 #main-objects .mat-expansion-panel-header-description, .mat-expansion-panel-header-title {
-    padding: 15px 0;
+    /* padding: 15px 0; */
 }
 .card {
     text-align: left;

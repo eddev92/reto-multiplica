@@ -18,7 +18,7 @@
             <div class="items" *ngFor="let item of items">
                 <card [name]="item.name" [desc]="item.desc" (valueChange)="removeItem($event)" (valueChangeEdit)="editItem($event)" [editItem]="editItem()" class=" main-card"></card>
             </div>
-            <h3 *ngIf="!items.length > 0">No existen registros</h3>
+            <h3 *ngIf="!items.length">No existen registros</h3>
         </div>
         <div class="col-md-3 form-dashboard">
             <h5>Servicio</h5>
