@@ -29,6 +29,9 @@ export class DashboardComponent {
         if (itemsRender.length) {
             this.items = itemsRender;
             this.empty = true;
+        } else {
+            localStorage.clear();
+            localStorage.removeItem('items');
         }
     }
 
@@ -36,7 +39,6 @@ export class DashboardComponent {
         if (!this.name.length || !this.desc.length){
             return alert('Ambos campos son requeridos.')
         }
-        // this.items = JSON.parse(localStorage.getItem('items'));
 
         if (this.items && this.items.length) {
             this.items = JSON.parse(localStorage.getItem('items'));
@@ -47,6 +49,8 @@ export class DashboardComponent {
             localStorage.setItem('items', JSON.stringify(this.items));
             this.empty = true;
             this.copyItemInitial = JSON.parse(localStorage.getItem('items'));
+            this.name = '';
+            this.desc = '';
         }
     }
 
@@ -60,7 +64,7 @@ export class DashboardComponent {
                 if (data.name === item.name && data.desc === item.desc) {
                     localStorage.removeItem('items');
                     this.items.splice(index, 1);
-                    localStorage.setItem('items', this.items);
+                    localStorage.setItem('items', JSON.stringify(this.items));
                 }
             })
         }
@@ -102,33 +106,7 @@ export class DashboardComponent {
         if (option && option.value) {
             this.optionSelected = option.value;
         }
-      }
-    // filterItems(code: any) {
-    //     if (code && this.empty) {
-    //         if (code && this.items) {
-    //             this.items = JSON.parse(localStorage.getItem('items'));
-    //             if (code === 1) {
-    //                 this.itemsFiltered = JSON.parse(localStorage.getItem('items'));
-    //             } else {
-    //                 if (this.items && this.items.length) {
-    //                     this.itemsFiltered = this.items.filter(item => item.category === `${code}`);
-    //                 } else {
-    //                     return alert('no existen registros para filtrar')
-    //                 }
-    //             }
-    //         }
-    //         if (this.itemsFiltered && this.itemsFiltered.length) {
-    //             return this.items = this.itemsFiltered;            
-    //         } else {
-    //             if (this.items && this.items.length && code === 1) {
-    //                 this.items = JSON.parse(localStorage.getItem('items'));
-    //             } else {
-    //                 this.items = [];
-    //             }
-    //         }
-    //         return this.items;
-    //     }
-    // }
+    }
     clearList() {
         localStorage.clear();
         this.items = [];

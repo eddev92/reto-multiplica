@@ -29,18 +29,15 @@
     color: red;
 }
 .list-items-dashboard {
-    /* width: 70%;
-    margin-left: 0; */
     max-height: 450px;
 }
 .list-items-dashboard h3 {
-    margin: auto;
+    position: absolute;
+    margin: 80px;
 }
 .form-dashboard {
-    /* position: absolute; */
     padding: 20px;
     border: 1px solid #e5e5e5;
-    /* right: 5%; */
 }
 .main-dashboard .nav {
     border: 1px solid #e5e5e5;
@@ -48,6 +45,9 @@
 }
 .main-dashboard {
     padding: 20px;
+    margin: 0;
+    max-height: 490px;
+    overflow-y: hidden;
 }
 .option {
     border-right: 1px solid #e5e5e5;
@@ -62,4 +62,8 @@
 }
 button.save {
     margin-top: 15px;
+}
+.list-left {
+    overflow-y: auto;
+    border-right: 1px solid #e5e5e5;
 }

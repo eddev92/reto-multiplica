@@ -1,10 +1,10 @@
 <div class="main-dashboard row">
-    <div class="col-7">
+    <div class="list-left col-7">
         <div class="list-items-dashboard">
             <div class="items" *ngFor="let item of items">
                 <card [name]="item.name" [desc]="item.desc" (valueChange)="removeItem($event)" (valueChangeEdit)="editItem($event)" [editItem]="editItem()" class=" main-card"></card>
             </div>
-            <h3 *ngIf="!items.length">No existen registros</h3>
+            <h3 *ngIf="!items.length">NO EXISTEN REGISTROS</h3>
         </div>        
     </div>
     <div class="col-5">
@@ -30,6 +30,6 @@
                 <button class="remove" (click)="cancelNewItem()">Cancelar</button>
             </div>
         </div>
+        <button class="save" (click)="clearList()">Limpiar lista</button>
     </div>
-    <button class="save" (click)="clearList()">Limpiar lista</button>
 </div>
