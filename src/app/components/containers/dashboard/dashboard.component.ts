@@ -36,15 +36,14 @@ export class DashboardComponent {
     }
 
     saveItem() {
-        if (!this.name.length || !this.desc.length){
-            return alert('Ambos campos son requeridos.')
-        }
-
         if (this.items && this.items.length) {
             this.items = JSON.parse(localStorage.getItem('items'));
             this.empty = true;
         }
-        if ((this.items && this.items.length) || (this.name.length && this.desc.length)) {
+
+        if (!this.name.length || !this.desc.length){
+            return alert('Ambos campos son requeridos.')
+        } else {
             this.items.push({name: this.name, desc: this.desc});
             localStorage.setItem('items', JSON.stringify(this.items));
             this.empty = true;
@@ -55,10 +54,16 @@ export class DashboardComponent {
     }
 
     removeInfo() {
+        if (this.showEdit) {
+            this.showEdit = false;
+        }
         this.name = '';
         this.desc = '';
     }
     removeItem(data) {
+        if (this.showEdit) {
+            this.showEdit = false;
+        }
         if (this.items.length) {
             this.items.forEach((item, index) => {
                 if (data.name === item.name && data.desc === item.desc) {
@@ -88,6 +93,7 @@ export class DashboardComponent {
     }
     editItem(data) {
         if (this.items.length && data && data.name && data.desc) {
+            alert(`Se esta editando el registro cuyo Título es '${data.name}' y Descripción es '${data.desc}'`)
             this.items.forEach((item, index) => {
                 if (data.name === item.name && data.desc === item.desc) {
                     this.itemSelected = {name: data.name, desc: data.desc, position: index};

@@ -8,9 +8,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class CardComponent {
     @Output() valueChange = new EventEmitter();
     @Output() valueChangeEdit = new EventEmitter();
-    @Input() name: string; 
+    @Input() name: string;
     @Input() desc: string;
-    // @Input() removeItem: Function;
     @Input() editItem: Function;
 
     valueChanged() {

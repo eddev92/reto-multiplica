@@ -11,12 +11,14 @@ import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/containers/dashboard/dashboard.component';
 import { CardComponent } from './components/shared/card/card.component';
+import ListComponent from './components/shared/list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    CardComponent
+    CardComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,

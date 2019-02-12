@@ -1,5 +1,5 @@
 <div class="main-dashboard row">
-    <div class="list-left col-7">
+    <div class="list-left col-xs-12 col-md-7">
         <div class="list-items-dashboard">
             <div class="items" *ngFor="let item of items">
                 <card [name]="item.name" [desc]="item.desc" (valueChange)="removeItem($event)" (valueChangeEdit)="editItem($event)" [editItem]="editItem()" class=" main-card"></card>
@@ -7,7 +7,7 @@
             <h3 *ngIf="!items.length">NO EXISTEN REGISTROS</h3>
         </div>        
     </div>
-    <div class="col-5">
+    <div class="col-xs-12 col-md-5">
         <div *ngIf="showEdit === false" class="form-dashboard">
             <h5>Registrar elemento</h5>
             <label>Nombre</label>
