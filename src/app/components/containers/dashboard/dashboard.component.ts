@@ -12,7 +12,7 @@ export class DashboardComponent {
     public newName: string = '';
     public newDesc: string = '';
     public items: any = new Array();
-    public showEdit: boolean;
+    public showEdit: boolean = false;
     private itemSelected: any;
     public categories: any = new Array();
     public remove: boolean = false;
@@ -32,11 +32,12 @@ export class DashboardComponent {
     }
 
     saveItem() {
-        this.itemsSaved = JSON.parse(localStorage.getItem('items'));
         if (!this.name.length || !this.desc.length){
             return alert('Ambos campos son requeridos.')
         }
-        if (this.itemsSaved && this.itemsSaved.length) {
+        // this.items = JSON.parse(localStorage.getItem('items'));
+
+        if (this.items && this.items.length) {
             this.items = JSON.parse(localStorage.getItem('items'));
             this.empty = true;
         }
@@ -64,6 +65,9 @@ export class DashboardComponent {
         }
     }
     saveNewItem() {
+        if (!this.newName.length || !this.newDesc.length){
+            return alert('Ambos campos son requeridos.')
+        }
         if (this.itemSelected && this.itemSelected.name && this.itemSelected.desc) {
             this.items.forEach((item, index) => {
                 if (this.itemSelected.name === item.name && this.itemSelected.desc === item.desc && this.itemSelected.position === index) {
@@ -129,4 +133,4 @@ export class DashboardComponent {
         this.items = [];
         this.empty = false;
     }
-};
+}

@@ -1,5 +1,5 @@
 <div class="main-dashboard container-fluid">
-    <div class="row nav">
+    <!-- <div class="row nav">
         <span class="col-1 option" (click)="filterItems(1)">
             Todos
         </span>
@@ -12,7 +12,7 @@
         <span class="col-1 option" (click)="filterItems(4)">
             Hogar
         </span>
-    </div>
+    </div> -->
     <div class="row">
         <div class="row list-items-dashboard">
             <div class="items" *ngFor="let item of items">
@@ -20,14 +20,13 @@
             </div>
             <h3 *ngIf="!items.length">No existen registros</h3>
         </div>
-        <div class="col-md-3 form-dashboard">
-            <h5>Servicio</h5>
-            <label>Categoría</label>
+        <div *ngIf="showEdit === false" class="col-md-3 form-dashboard">
+            <!-- <label>Categoría</label>
             <select *ngIf="categories.length" name="category" (change)="handleChange($event.target)">
                 <option *ngFor="let category of categories" [value]="category.id">
                     {{category.name}}
                 </option>
-            </select>
+            </select> -->
             <label>Nombre</label>
             <input name="name" [(ngModel)]="name"/>
             <label>Descripción</label>
@@ -36,19 +35,18 @@
                 <button class="save" (click)="saveItem()">Grabar</button>
                 <button class="remove" (click)="removeInfo()">Cancelar</button>
             </div>
-            <div *ngIf="showEdit === true">
-                <h5>Editar elemento</h5>
-                <label>Nombre</label>
-                <input name="name" [(ngModel)]="newName"/>
-                <label>Descripción</label>
-                <input name="desc" [(ngModel)]="newDesc"/>
-                <div class="buttons">
-                    <button class="save" (click)="saveNewItem()">Grabar</button>
-                    <button class="remove" (click)="cancelNewItem()">Cancelar</button>
-            </div>
+        </div>
+        <div *ngIf="showEdit === true" class="col-md-3 form-dashboard">
+            <h5>Editar elemento</h5>
+            <label>Nombre</label>
+            <input name="name" [(ngModel)]="newName"/>
+            <label>Descripción</label>
+            <input name="desc" [(ngModel)]="newDesc"/>
+            <div class="buttons">
+                <button class="save" (click)="saveNewItem()">Grabar</button>
+                <button class="remove" (click)="cancelNewItem()">Cancelar</button>
             </div>
         </div>
-        
     </div>
     <button class="save" (click)="clearList()">Limpiar lista</button>
 </div>
