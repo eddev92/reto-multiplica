@@ -1,32 +1,15 @@
-<div class="main-dashboard container-fluid">
-    <!-- <div class="row nav">
-        <span class="col-1 option" (click)="filterItems(1)">
-            Todos
-        </span>
-        <span class="col-1 option" (click)="filterItems(2)">
-            Autos
-        </span>
-        <span class="col-1 option" (click)="filterItems(3)">
-            Salud
-        </span>
-        <span class="col-1 option" (click)="filterItems(4)">
-            Hogar
-        </span>
-    </div> -->
-    <div class="row">
-        <div class="row list-items-dashboard">
+<div class="main-dashboard row">
+    <div class="col-7">
+        <div class="list-items-dashboard">
             <div class="items" *ngFor="let item of items">
                 <card [name]="item.name" [desc]="item.desc" (valueChange)="removeItem($event)" (valueChangeEdit)="editItem($event)" [editItem]="editItem()" class=" main-card"></card>
             </div>
             <h3 *ngIf="!items.length">No existen registros</h3>
-        </div>
-        <div *ngIf="showEdit === false" class="col-md-3 form-dashboard">
-            <!-- <label>Categoría</label>
-            <select *ngIf="categories.length" name="category" (change)="handleChange($event.target)">
-                <option *ngFor="let category of categories" [value]="category.id">
-                    {{category.name}}
-                </option>
-            </select> -->
+        </div>        
+    </div>
+    <div class="col-5">
+        <div *ngIf="showEdit === false" class="form-dashboard">
+            <h5>Registrar elemento</h5>
             <label>Nombre</label>
             <input name="name" [(ngModel)]="name"/>
             <label>Descripción</label>
@@ -36,7 +19,7 @@
                 <button class="remove" (click)="removeInfo()">Cancelar</button>
             </div>
         </div>
-        <div *ngIf="showEdit === true" class="col-md-3 form-dashboard">
+        <div *ngIf="showEdit === true" class="form-dashboard">
             <h5>Editar elemento</h5>
             <label>Nombre</label>
             <input name="name" [(ngModel)]="newName"/>

@@ -24,7 +24,7 @@ export class DashboardComponent {
     // public itemsRender: any = new Array();
 
     ngOnInit() {
-        const itemsRender = JSON.parse(localStorage.getItem('items')).length ? JSON.parse(localStorage.getItem('items')) : [];
+        const itemsRender = (JSON.parse(localStorage.getItem('items')) && JSON.parse(localStorage.getItem('items')).length) ? JSON.parse(localStorage.getItem('items')) : [];
         this.categories = CATEGORIES;
         if (itemsRender.length) {
             this.items = itemsRender;
