@@ -21,9 +21,10 @@ export class DashboardComponent {
     public itemsFiltered: any = new Array();
     public itemsSaved: any = new Array();
     public empty: boolean;
+    // public itemsRender: any = new Array();
 
     ngOnInit() {
-        const itemsRender = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+        const itemsRender = JSON.parse(localStorage.getItem('items')).length ? JSON.parse(localStorage.getItem('items')) : [];
         this.categories = CATEGORIES;
         if (itemsRender.length) {
             this.items = itemsRender;
@@ -42,7 +43,7 @@ export class DashboardComponent {
             this.empty = true;
         }
         if ((this.items && this.items.length) || (this.name.length && this.desc.length)) {
-            this.items.push({name: this.name, desc: this.desc, category: this.optionSelected});
+            this.items.push({name: this.name, desc: this.desc});
             localStorage.setItem('items', JSON.stringify(this.items));
             this.empty = true;
             this.copyItemInitial = JSON.parse(localStorage.getItem('items'));
@@ -102,32 +103,32 @@ export class DashboardComponent {
             this.optionSelected = option.value;
         }
       }
-    filterItems(code: any) {
-        if (code && this.empty) {
-            if (code && this.items) {
-                this.items = JSON.parse(localStorage.getItem('items'));
-                if (code === 1) {
-                    this.itemsFiltered = JSON.parse(localStorage.getItem('items'));
-                } else {
-                    if (this.items && this.items.length) {
-                        this.itemsFiltered = this.items.filter(item => item.category === `${code}`);
-                    } else {
-                        return alert('no existen registros para filtrar')
-                    }
-                }
-            }
-            if (this.itemsFiltered && this.itemsFiltered.length) {
-                return this.items = this.itemsFiltered;            
-            } else {
-                if (this.items && this.items.length && code === 1) {
-                    this.items = JSON.parse(localStorage.getItem('items'));
-                } else {
-                    this.items = [];
-                }
-            }
-            return this.items;
-        }
-    }
+    // filterItems(code: any) {
+    //     if (code && this.empty) {
+    //         if (code && this.items) {
+    //             this.items = JSON.parse(localStorage.getItem('items'));
+    //             if (code === 1) {
+    //                 this.itemsFiltered = JSON.parse(localStorage.getItem('items'));
+    //             } else {
+    //                 if (this.items && this.items.length) {
+    //                     this.itemsFiltered = this.items.filter(item => item.category === `${code}`);
+    //                 } else {
+    //                     return alert('no existen registros para filtrar')
+    //                 }
+    //             }
+    //         }
+    //         if (this.itemsFiltered && this.itemsFiltered.length) {
+    //             return this.items = this.itemsFiltered;            
+    //         } else {
+    //             if (this.items && this.items.length && code === 1) {
+    //                 this.items = JSON.parse(localStorage.getItem('items'));
+    //             } else {
+    //                 this.items = [];
+    //             }
+    //         }
+    //         return this.items;
+    //     }
+    // }
     clearList() {
         localStorage.clear();
         this.items = [];
