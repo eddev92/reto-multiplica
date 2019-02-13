@@ -1,7 +1,7 @@
 <div class="main-dashboard row">
     <div class="list-left col-xs-12 col-md-7">
         <div class="list-items-dashboard">
-            <list [items]="items">
+            <list [items]="items" (handleItem)="editItem($event)" (handleRemoveItem)="removeItem($event)">
                 <card></card>
             </list>
             <h3 *ngIf="!items.length">NO EXISTEN REGISTROS</h3>

@@ -21,7 +21,6 @@ export class DashboardComponent {
     public itemsFiltered: any = new Array();
     public itemsSaved: any = new Array();
     public empty: boolean;
-
     ngOnInit() {
         const itemsRender = (JSON.parse(localStorage.getItem('items')) && JSON.parse(localStorage.getItem('items')).length) ? JSON.parse(localStorage.getItem('items')) : [];
         this.categories = CATEGORIES;
@@ -43,7 +42,7 @@ export class DashboardComponent {
         if (!this.name.length || !this.desc.length){
             return alert('Ambos campos son requeridos.')
         } else {
-            this.items.push({name: this.name, desc: this.desc});
+            this.items.push({ name: this.name, desc: this.desc });
             localStorage.setItem('items', JSON.stringify(this.items));
             this.empty = true;
             this.copyItemInitial = JSON.parse(localStorage.getItem('items'));
@@ -98,7 +97,6 @@ export class DashboardComponent {
                 }
             })
         }
-
     }
     cancelNewItem() {
       if (this.items.length && this.showEdit) {
