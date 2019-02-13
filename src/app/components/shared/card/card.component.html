@@ -2,8 +2,8 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-5">
-                    <h5 class="card-title">{{name}}</h5>
-                    <p class="card-text">{{desc}}</p>
+                   <h5 *ngIf="data && data.name" class="card-title">{{data.name}}</h5>
+                    <p *ngIf="data && data.desc" class="card-text">{{data.desc}}</p>
                 </div>
                 <div class="col-md-7">
                     <img src="assets/images/logo.png" />
@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="card-footer text-muted">
-            <a (click)="valueChangedEdit()" class="card-link">Editar</a>
-            <a (click)="valueChanged()" class="card-link">Eliminar</a>
+            <!-- <a (click)="valueChangedEdit()" class="card-link">Editar</a>
+            <a (click)="valueChanged()" class="card-link">Eliminar</a> -->
         </div>
 </div>

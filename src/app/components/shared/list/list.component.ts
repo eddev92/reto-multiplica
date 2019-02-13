@@ -1,5 +1,4 @@
-import { QueryList, ContentChild, ViewChildren, OnInit, ViewChild, AfterContentInit, AfterViewInit, Component, Input, EventEmitter, Output, ContentChildren } from '@angular/core';
-import { SERVICES_ITEMS, CATEGORIES } from '../../../constants/services';
+import {  ContentChild, QueryList, ViewChildren, ViewChild, AfterContentInit, Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 
 @Component({
@@ -8,8 +7,33 @@ import { CardComponent } from '../card/card.component';
   styleUrls: ['./list.component.css']
 })
 
-class ListComponent {
-    
+class ListComponent implements OnInit, AfterContentInit, AfterViewInit {
+
+  public itemsReceive: any;
+
+  @Input() items: any;
+  @ViewChild(CardComponent) cardViewChild: CardComponent;
+  @ViewChildren(CardComponent) cardViewChildren: QueryList<CardComponent>;
+  @ContentChild(CardComponent) cardContentChild: CardComponent;
+
+  constructor() { }
+
+
+   ngOnInit() {
+  }
+
+  ngAfterContentInit() {
+    console.log(
+      `ngAfterContentInit - cardContentChild is ${this.cardContentChild}`
+    );
+  }
+
+  ngAfterViewInit() {
+    console.log(`ngAfterViewInit - cardViewChild is ${this.cardViewChild}`);
+
+    let cards: CardComponent[] = this.items;
+    console.log(cards);
+  }
  }
 
 export default ListComponent;

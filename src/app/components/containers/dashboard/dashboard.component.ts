@@ -21,7 +21,6 @@ export class DashboardComponent {
     public itemsFiltered: any = new Array();
     public itemsSaved: any = new Array();
     public empty: boolean;
-    // public itemsRender: any = new Array();
 
     ngOnInit() {
         const itemsRender = (JSON.parse(localStorage.getItem('items')) && JSON.parse(localStorage.getItem('items')).length) ? JSON.parse(localStorage.getItem('items')) : [];
@@ -48,8 +47,6 @@ export class DashboardComponent {
             localStorage.setItem('items', JSON.stringify(this.items));
             this.empty = true;
             this.copyItemInitial = JSON.parse(localStorage.getItem('items'));
-            this.name = '';
-            this.desc = '';
         }
     }
 

@@ -1,9 +1,12 @@
 <div class="main-dashboard row">
     <div class="list-left col-xs-12 col-md-7">
         <div class="list-items-dashboard">
-            <div class="items" *ngFor="let item of items">
+            <list [items]="items">
+                <card></card>
+            </list>
+            <!-- <div class="items" *ngFor="let item of items">
                 <card [name]="item.name" [desc]="item.desc" (valueChange)="removeItem($event)" (valueChangeEdit)="editItem($event)" [editItem]="editItem()" class=" main-card"></card>
-            </div>
+            </div> -->
             <h3 *ngIf="!items.length">NO EXISTEN REGISTROS</h3>
         </div>        
     </div>
@@ -15,7 +18,7 @@
             <label>Descripción</label>
             <input name="desc" [(ngModel)]="desc"/>
             <div class="buttons">
-                <button class="save" (click)="saveItem()">Grabar</button>
+                <button class="save" (click)="saveItem()">Agregar card</button>
                 <button class="remove" (click)="removeInfo()">Cancelar</button>
             </div>
         </div>
@@ -26,7 +29,7 @@
             <label>Descripción</label>
             <input name="desc" [(ngModel)]="newDesc"/>
             <div class="buttons">
-                <button class="save" (click)="saveNewItem()">Grabar</button>
+                <button class="save" (click)="saveNewItem()">Actualizar card</button>
                 <button class="remove" (click)="cancelNewItem()">Cancelar</button>
             </div>
         </div>
