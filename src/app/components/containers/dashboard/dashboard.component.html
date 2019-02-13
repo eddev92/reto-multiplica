@@ -4,9 +4,6 @@
             <list [items]="items">
                 <card></card>
             </list>
-            <!-- <div class="items" *ngFor="let item of items">
-                <card [name]="item.name" [desc]="item.desc" (valueChange)="removeItem($event)" (valueChangeEdit)="editItem($event)" [editItem]="editItem()" class=" main-card"></card>
-            </div> -->
             <h3 *ngIf="!items.length">NO EXISTEN REGISTROS</h3>
         </div>        
     </div>

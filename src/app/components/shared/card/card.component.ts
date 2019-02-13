@@ -7,16 +7,13 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class CardComponent {
     // @Output() valueChange = new EventEmitter();
-    // @Output() valueChangeEdit = new EventEmitter();
+    @Output() valueChangeEdit = new EventEmitter();
     @Input("item") data;
-    // @Input() desc: string;
-    // @Input() name: string;
-    // @Input() editItem: Function;
 
-    valueChanged() {
-        // this.valueChange.emit({name: this.name, desc: this.desc});
-    }
+    // valueChanged() {
+    //     this.valueChange.emit({name: this.data.name, desc: this.data.desc});
+    // }
     valueChangedEdit() {
-        // this.valueChangeEdit.emit({name: this.name, desc: this.desc});
+        this.valueChangeEdit.emit({name: this.data.name, desc: this.data.desc});
     }
 }
