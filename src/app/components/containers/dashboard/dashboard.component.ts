@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SERVICES_ITEMS, CATEGORIES } from '../../../constants/services';
 
 @Component({
   selector: 'dashboard',
@@ -14,7 +13,6 @@ export class DashboardComponent {
     public items: any = new Array();
     public showEdit: boolean = false;
     private itemSelected: any;
-    public categories: any = new Array();
     public remove: boolean = false;
     public optionSelected: string;
     public copyItemInitial: any = new Array();
@@ -23,7 +21,7 @@ export class DashboardComponent {
     public empty: boolean;
     ngOnInit() {
         const itemsRender = (JSON.parse(localStorage.getItem('items')) && JSON.parse(localStorage.getItem('items')).length) ? JSON.parse(localStorage.getItem('items')) : [];
-        this.categories = CATEGORIES;
+
         if (itemsRender.length) {
             this.items = itemsRender;
             this.empty = true;
